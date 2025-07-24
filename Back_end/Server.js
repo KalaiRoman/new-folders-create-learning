@@ -9,6 +9,7 @@ import router from "./routes/index.js";
 dotenv.config({ quiet: true });
 DataBaseConnection();
 const app = express();
+app.use(express.json());
 app.use(
   cors({
     credentials: true,
@@ -20,7 +21,7 @@ app.get("/", (req, res, error) => {
   return res.json("Backend Running Successfully...!");
 });
 
-app.use("/lean",router);
+app.use("/learn",router);
 app.listen(process.env.PORT, () => {
   console.log(`Backend Running Successfully ${process.env.PORT}`);
 });
